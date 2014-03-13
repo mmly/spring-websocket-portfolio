@@ -27,10 +27,13 @@ import org.springframework.messaging.simp.annotation.SendToUser;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.samples.portfolio.Portfolio;
 import org.springframework.samples.portfolio.PortfolioPosition;
+import org.springframework.samples.portfolio.domain.Customer;
 import org.springframework.samples.portfolio.service.PortfolioService;
 import org.springframework.samples.portfolio.service.Trade;
 import org.springframework.samples.portfolio.service.TradeService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -68,5 +71,13 @@ public class PortfolioController {
 	public String handleException(Throwable exception) {
 		return exception.getMessage();
 	}
+
+
+       @RequestMapping("/xyz")
+       public @ResponseBody Customer  showCustomers() {
+                return new Customer("namex","surnamey");
+
+       }
+
 
 }
